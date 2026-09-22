@@ -1,0 +1,273 @@
+/* ==========================================================================
+   1. Reset & Base Styles
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================================================
+   2. Header & Navbar (Checkbox Hack Base Styles)
+   ========================================================================== */
+header {
+    background-color: #1a73e8;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+/* [BARU JOBSHEET 3] Sembunyikan Checkbox Hack & Label Hamburger secara default di Desktop */
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+header nav a {
+    color: #ffffff;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+header nav a:hover {
+    opacity: 0.8;
+}
+
+/* ==========================================================================
+   3. Main & Section Layout
+   ========================================================================== */
+main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+    margin-bottom: 1rem;
+    color: #1a73e8;
+}
+
+/* ==========================================================================
+   4. Grid Kartu Statistik (Desktop: 3 Kolom)
+   ========================================================================== */
+main section:nth-of-type(2) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+main section:nth-of-type(2) h2 {
+    grid-column: 1 / -1;
+}
+
+article {
+    background-color: #eef4ff;
+    border: 1px solid #d0e1fd;
+    border-radius: 6px;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+article h3 {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+article p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1a73e8;
+}
+
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    min-width: 500px; 
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9fbfd;
+}
+
+tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+td button {
+    padding: 0.35rem 0.75rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-right: 0.3rem;
+}
+
+td button:first-of-type {
+    background-color: #ffc107;
+    color: #000;
+}
+
+td button:last-of-type {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* ==========================================================================
+   6. Form & Input Kontrol
+   ========================================================================== */
+form p {
+    margin-bottom: 1.25rem;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+    color: #444;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+button[type="submit"] {
+    background-color: #1a73e8;
+    color: #ffffff;
+    padding: 0.65rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   7. Footer
+   ========================================================================== */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: #777;
+    font-size: 0.9rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* ==========================================================================
+   8. [BARU JOBSHEET 3] Responsive Breakpoints (Media Queries)
+   ========================================================================== */
+
+/* [BARU JOBSHEET 3] Breakpoint Tablet (<= 768px) */
+@media (max-width: 768px) {
+    /* Mengubah grid kartu statistik dari 3 kolom menjadi 2 kolom */
+    main section:nth-of-type(2) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* [BARU JOBSHEET 3] Breakpoint Mobile (<= 480px) */
+@media (max-width: 480px) {
+    header {
+        position: relative;
+    }
+
+    /* Tampilkan tombol ikon hamburger ☰ */
+    .nav-toggle-label {
+        display: block;
+    }
+
+    /* Sembunyikan menu navigasi secara default di HP */
+    header nav {
+        display: none;
+        width: 100%;
+        order: 3;
+        margin-top: 1rem;
+    }
+
+    /* Checkbox Hack: Munculkan menu saat checkbox tercentang */
+    .nav-toggle:checked ~ nav {
+        display: block;
+    }
+
+    /* Menu bertumpuk secara vertikal */
+    header nav ul {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    /* Kartu statistik bertumpuk 1 kolom penuh */
+    main section:nth-of-type(2) {
+        grid-template-columns: 1fr;
+    }
+
+    /* Form input & select memenuhi lebar layar HP */
+    form input, form select {
+        max-width: 100%;
+    }
+}
